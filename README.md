@@ -10,7 +10,7 @@ We verify the results in the Tests Results tab
 
 <img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/bc36e7b5-0649-4b8c-b09b-447f8d384586" />
 
-## How to use the Codex Agent to implement the Tests in the Launcher.java file
+## How to use the Codex AI Agent to implement the Tests in the Launcher.java file
 
 For example if we would like to modify the Launcher.java file to implement the tests included in the Ex4_5_SpecialParameterHandling.java file, 
 
