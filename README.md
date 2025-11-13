@@ -99,3 +99,12 @@ public class Launcher implements CommandLineRunner {
 }
 ```
 
+Now we execute this command to run the application:
+
+```
+mvn spring-boot:run
+```
+
+Finally we verify the results:
+
+<img width="1919" height="1021" alt="image" src="https://github.com/user-attachments/assets/9e477712-850b-4065-9ce6-950e53b543dd" />
