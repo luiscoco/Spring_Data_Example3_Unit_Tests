@@ -22,7 +22,9 @@ I would like to modify the Launcher.java to implement the following tests in the
 
 <img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/e5b58905-4440-4ecd-a373-7f3ea887e166" />
 
-The AI Agent will modify the Launcher.java file and will create the following code:
+The AI Agent will modify the **Launcher.java** file and will create the following code:
+
+**Launcher.java**
 
 ```java
 package com.luxoft.data.examples;
