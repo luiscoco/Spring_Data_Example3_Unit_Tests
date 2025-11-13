@@ -20,6 +20,82 @@ we open the **Codex** AI Agent and we type the following prompt:
 I would like to modify the Launcher.java to implement the following tests in the Ex4_5_SpecialParameterHandling.java file
 ```
 
+<img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/e5b58905-4440-4ecd-a373-7f3ea887e166" />
 
+The AI Agent will modify the Launcher.java file and will create the following code:
 
+```java
+package com.luxoft.data.examples;
+
+import com.luxoft.data.examples.model.Person;
+import com.luxoft.data.examples.repositories.AddressRepository;
+import com.luxoft.data.examples.repositories.PersonRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@SpringBootApplication
+@EnableTransactionManagement
+@EnableAsync
+public class Launcher implements CommandLineRunner {
+
+    private final PersonRepository personRepository;
+    private final AddressRepository addressRepository;
+
+    public Launcher(PersonRepository personRepository,
+                    AddressRepository addressRepository) {
+        this.personRepository = personRepository;
+        this.addressRepository = addressRepository;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Launcher.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
+        specialParameterHandlingSort();
+        specialParameterHandlingPaging();
+    }
+
+    private void specialParameterHandlingSort() {
+        printTitle("Spring Data Ex.4; Special parameter handling. Sorting");
+
+        Sort sort = Sort.sort(Person.class)
+                .by(Person::getName)
+                .descending();
+
+        personRepository
+                .findByAge(21, sort)
+                .forEach(Launcher::print);
+    }
+
+    private void specialParameterHandlingPaging() {
+        printTitle("Spring Data Ex.5; Special parameter handling. Paging");
+
+        addressRepository
+                .findAllByCity("Kiev", PageRequest.of(1, 3, Sort.by("street")))
+                .forEach(Launcher::print);
+    }
+
+    public static void print(String s) {
+        System.out.println(s);
+    }
+
+    public static void print(Object o) {
+        System.out.println(o);
+    }
+
+    public static void printTitle(String s) {
+        System.out.println("\n==========================");
+        System.out.println(s);
+        System.out.println("==========================");
+    }
+
+}
+```
 
